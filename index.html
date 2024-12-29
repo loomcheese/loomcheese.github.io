@@ -52,7 +52,7 @@
 
             try {
                 // Fetch IP and additional details from the API
-                const response = await fetch('https://ip-api.com/json/?fields=query,proxy,hosting', {
+                const response = await fetch('http://ip-api.com/json/?fields=query,proxy,hosting', {
                     method: 'GET',
                     headers: {
                         'Content-Type': 'application/json'
