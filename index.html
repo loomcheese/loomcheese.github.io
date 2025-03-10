@@ -246,7 +246,6 @@
                 const data = await response.json();
                 const ip = data.ip || 'Unavailable';
 
-                ipElement.textContent = ip;
                 ipElement.classList.add('fade-in');
 
                 const embedPayload = {
